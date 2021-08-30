@@ -11,13 +11,13 @@ import io.appium.java_client.android.AndroidElement;
 import static io.appium.java_client.touch.offset.ElementOption.element;
 import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
 
-public class DragandDrop extends Base{
+public class DragandDrop extends HybridBase{
 
 	public static void main(String[] args) throws MalformedURLException {
 
 		
 		
-		AndroidDriver<AndroidElement> driver = capabilities();
+		AndroidDriver<AndroidElement> driver = capabilities("Real");
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 

@@ -11,18 +11,19 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Base {
+public class HybridBase {
     
-	public static AndroidDriver<AndroidElement> capabilities() throws MalformedURLException {
+	public static AndroidDriver<AndroidElement> capabilities(String device) throws MalformedURLException {
 		
 		File parent = new File("src//main//java//Resources");
 		File app = new File(parent, "ApiDemos-debug.apk");
 		
 		DesiredCapabilities cap = new DesiredCapabilities();
-		
+		if(device.equalsIgnoreCase("Emulator")) {
 		//cap.setCapability(MobileCapabilityType.DEVICE_NAME, "ManiEmulator");
+		} else if (device.equalsIgnoreCase("Real")) {
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Device");
-		
+		}
 		cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath() );
 		
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
